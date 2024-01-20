@@ -1,0 +1,33 @@
+Entities:
+
+1. Gymnasium:
+        Attributes: GymID (unique identifier), Name, Address, Telephone Number
+
+2. Member
+        Attributes: MemberID (unique identifier), Last Name, First Name, Address, Date of Birth, Gender
+        Relationships: Registers at (with Gymnasium).
+
+3. Session
+        Attributes: SessionID (unique identifier), Type of Sport, Schedule, Maximum Capacity
+        Relationships: Takes Place at (with Gymnasium).
+        
+4. Coach
+        Attributes: CoachID (unique identifier), Last Name, First Name, Age, Specialty
+        Relationships: Leads (with Session).
+
+
+Relationships:
+
+Registers at: Many-to-One relationship between Member and Gymnasium
+Takes Place at: Many-to-One relationship between Session and Gymnasium
+Leads: Many-to-Many relationship between Coach and Session (assuming a coach can lead multiple sessions, and a session can have multiple coaches).
+
+
+This is the textual representation of the relationship:
+
+Gymnasium ---< Takes Place at >--- Session
+   |
+   v
+Member ---< Registers at >--- Gymnasium
+
+Coach ---< Leads >--- Session
